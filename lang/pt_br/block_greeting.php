@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
 /**
- * Brazilian Portuguese strings for block_greeting.
+ * Brazilian Portuguese language strings for block_greeting.
  *
  * @package    block_greeting
  * @copyright  2026 Antonio Carlos
@@ -24,4 +24,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'greeting';
+$string['greeting'] = 'Olá! Bem-vindo ao desenvolvimento de plugins Moodle.';
+$string['greeting:addinstance'] = 'Adicionar um novo bloco de saudação';
+$string['greeting:myaddinstance'] = 'Adicionar um novo bloco de saudação ao Painel';
+$string['jsloaded'] = 'Este bloco foi carregado via JavaScript.';
+$string['pluginname'] = 'Saudação';
+$string['privacy:metadata'] = 'O bloco Saudação não armazena nenhum dado pessoal.';

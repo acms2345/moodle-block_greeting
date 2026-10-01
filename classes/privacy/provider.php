@@ -14,19 +14,22 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
+namespace block_greeting\privacy;
+
 /**
- * English language strings for block_greeting.
+ * Privacy provider for block_greeting.
  *
  * @package    block_greeting
  * @copyright  2026 Antonio Carlos
  * @license    https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
-defined('MOODLE_INTERNAL') || die();
-
-$string['greeting'] = 'Hello! Welcome to Moodle plugin development.';
-$string['greeting:addinstance'] = 'Add a new greeting block';
-$string['greeting:myaddinstance'] = 'Add a new greeting block to the Dashboard';
-$string['jsloaded'] = 'This block was loaded via JavaScript.';
-$string['pluginname'] = 'Greeting';
-$string['privacy:metadata'] = 'The Greeting block does not store any personal data.';
+class provider implements \core_privacy\local\metadata\null_provider {
+	/**
+	 * Return the language string identifier explaining why this plugin stores no personal data.
+	 *
+	 * @return string
+	 */
+	public static function get_reason(): string {
+		return 'privacy:metadata';
+	}
+}

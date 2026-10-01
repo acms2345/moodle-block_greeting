@@ -15,18 +15,33 @@
 // along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
 /**
- * English language strings for block_greeting.
+ * Capability definitions for block_greeting.
  *
  * @package    block_greeting
  * @copyright  2026 Antonio Carlos
  * @license    https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+defined("MOODLE_INTERNAL") || die();
 
-$string['greeting'] = 'Hello! Welcome to Moodle plugin development.';
-$string['greeting:addinstance'] = 'Add a new greeting block';
-$string['greeting:myaddinstance'] = 'Add a new greeting block to the Dashboard';
-$string['jsloaded'] = 'This block was loaded via JavaScript.';
-$string['pluginname'] = 'Greeting';
-$string['privacy:metadata'] = 'The Greeting block does not store any personal data.';
+$capabilities = [
+    'block/greeting:addinstance' => [
+        'riskbitmask' => RISK_XSS,
+        'captype' => 'write',
+        'contextlevel' => CONTEXT_BLOCK,
+        'archetypes' => [
+            'editingteacher' => CAP_ALLOW,
+            'manager' => CAP_ALLOW,
+        ],
+        'clonepermissionsfrom' => 'moodle/site:manageblocks',
+    ],
+    'block/greeting:myaddinstance' => [
+        'captype' => 'write',
+        'contextlevel' => CONTEXT_SYSTEM,
+        'archetypes' => [
+            'editingteacher' => CAP_ALLOW,
+            'manager' => CAP_ALLOW,
+        ],
+        'clonepermissionsfrom' => 'moodle/my:manageblocks',
+    ],
+];

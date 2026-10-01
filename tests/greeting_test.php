@@ -14,19 +14,33 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
+namespace block_greeting;
+
+defined('MOODLE_INTERNAL') || die();
+
 /**
- * English language strings for block_greeting.
+ * Tests for the Greeting block.
  *
  * @package    block_greeting
  * @copyright  2026 Antonio Carlos
  * @license    https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @covers     \block_greeting
+ * @covers     \block_greeting\local\greeting_text
+ * @group      block_greeting
  */
+final class greeting_test extends \advanced_testcase {
+    /**
+     * The greeting string is rendered in the block content.
+     *
+     * @return void
+     */
+    public function test_greeting_message_is_rendered(): void {
+        global $PAGE;
 
-defined('MOODLE_INTERNAL') || die();
+        $block = new \block_greeting();
+        $block->page = $PAGE;
+        $content = $block->get_content();
 
-$string['greeting'] = 'Hello! Welcome to Moodle plugin development.';
-$string['greeting:addinstance'] = 'Add a new greeting block';
-$string['greeting:myaddinstance'] = 'Add a new greeting block to the Dashboard';
-$string['jsloaded'] = 'This block was loaded via JavaScript.';
-$string['pluginname'] = 'Greeting';
-$string['privacy:metadata'] = 'The Greeting block does not store any personal data.';
+        $this->assertStringContainsString(get_string('greeting', 'block_greeting'), $content->text);
+    }
+}
