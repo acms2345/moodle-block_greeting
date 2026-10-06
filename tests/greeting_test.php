@@ -18,6 +18,8 @@ namespace block_greeting;
 
 defined('MOODLE_INTERNAL') || die();
 
+require_once(__DIR__ . '/../block_greeting.php');
+
 /**
  * Tests for the Greeting block.
  *
