@@ -18,7 +18,7 @@ namespace block_greeting;
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once(__DIR__ . '/../block_greeting.php');
+require_once($CFG->dirroot . '/blocks/moodleblock.class.php');
 
 /**
  * Tests for the Greeting block.
